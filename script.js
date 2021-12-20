@@ -1,6 +1,6 @@
 // Create an app object. (moodApp)
- const moodApp = {};
-// Create variables to hold apiKey, apiURL, userQuery 
+
+// Create variables to hold apiURL and userQuery 
 
 // Create separate arrays for each mood holding backgrounds and potential artists/genre
 
@@ -18,3 +18,23 @@
 // If unsuccessful, display an error message
 
 // Create an init method to initialize the app
+
+
+// Namespace
+const moodApp = {};
+
+
+// Object to hold our music information
+
+const userQuery = 'bruno+mars';
+
+// const apiURL = `https://itunes.apple.com/search?term=${userQuery}&entity=musicTrack`;
+
+
+const url = new URL(`https://itunes.apple.com/search?`);
+url.search = new URLSearchParams({
+    term: `${userQuery}`,
+    entity: `musicTrack`
+});
+
+fetch(url);
