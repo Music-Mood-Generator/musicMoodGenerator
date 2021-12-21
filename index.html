@@ -4,11 +4,43 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Music Mood Generator</title>
+    <link rel="icon" href="https://img.icons8.com/material-outlined/24/000000/music--v2.png"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,200&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Testing</h1>
-    
+    <header>
+        <div>
+            <h1>Music Mood Generator</h1>
+            <h2>Find music to fit all your moods</h2>
+        </div>
+        <div>
+            <!-- Add image of record player and animate if there is time -->
+            <img src="#" alt="#">
+        </div>
+        <p>A quiz that matches your mood to various songs!</p>
+    </header>
+    <main>
+        <section>
+            <fieldset>
+                <label for="moodSelection">How are you feeling today?</label>
+                <select name="moodSelection" id="moodSelection">
+                    <option value="" disabled selected>Choose Your Mood</option>
+                    <option value="happy">Happy</option>
+                    <option value="sad">Sad</option>
+                    <option value="chill">Chill</option>
+                    <option value="romantic">Romantic</option>
+                </select>
+                <button type="submit">Give me a song!</button>
+            </fieldset>
+        </section>
+        <section>
+            <!-- Inner HTML goes here -->
+
+        </section>
+    </main>
     <script src="script.js"></script>
 </body>
 </html>
