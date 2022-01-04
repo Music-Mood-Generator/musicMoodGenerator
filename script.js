@@ -23,18 +23,22 @@
 // Namespace
 const moodApp = {};
 
+// Create Init
+moodApp.init= () => {
 
-// Object to hold our music information
+};
 
-const userQuery = 'bruno+mars';
+// User Input
+moodApp.formElement= document.querySelector('form');
 
-// const apiURL = `https://itunes.apple.com/search?term=${userQuery}&entity=musicTrack`;
+moodApp.formElement.addEventListener('submit', function(eventObj){
+    eventObj.preventDefault();
+    moodApp.userMood = document.querySelector('option:checked').value;
+    console.log(moodApp.userMood);
+
+    // moodApp.moodChoice = 
+})
 
 
-const url = new URL(`https://itunes.apple.com/search?`);
-url.search = new URLSearchParams({
-    term: `${userQuery}`,
-    entity: `musicTrack`
-});
-
-fetch(url);
+// Call Init
+moodApp.init();
