@@ -25,6 +25,8 @@ const moodApp = {};
 
 // Create Init
 moodApp.init= () => {
+    // moodApp.userQuery();
+    // moodApp.url();
 
 };
 
@@ -36,9 +38,50 @@ moodApp.formElement.addEventListener('submit', function(eventObj){
     moodApp.userMood = document.querySelector('option:checked').value;
     console.log(moodApp.userMood);
 
-    // moodApp.moodChoice = 
+    moodApp.moodChoice = moodApp.userQuery[moodApp.userMood];
+    console.log(moodApp.moodChoice); 
 })
+moodApp.userQuery = {
+    happy: [
+        {
+            artist: 'bruno+mars'
+        }
+    ],
+    sad: [
+        {
+            artist: 'adele',
+        },
 
+    ],
+    chill: [
+        {
+            artist: 'lana+del+rey',
+        },
+
+    ],
+    romantic: [
+        {
+            artist: 'michael+buble'
+        }
+    ]
+};
+
+const artistTest = moodApp.moodChoice;
+const url = new URL(`https://itunes.apple.com/search?`);
+url.search = new URLSearchParams({
+    term: `${artistTest}`,
+     entity: `musicTrack`
+ });
+
+
+ moodApp.url = fetch(url)
+ .then( (res) => {
+     return res.json(); 
+ })
+ .then( (jsonData) => {
+     console.log(jsonData);
+ })
+ 
 
 // Call Init
 moodApp.init();
