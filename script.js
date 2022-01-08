@@ -90,23 +90,22 @@ moodApp.insertArtist = (artist) => {
 // Display results on page
 moodApp.displayResults = (jsonData) => {
     const resultsContainer = document.querySelector('.results');
+    
     const audioTrackContainer = document.querySelector('audio');
+    const resultDivElement = document.createElement('div');
     jsonData.forEach((results) => {
 
-        // Song title
-        const songTitle = document.createElement('h3');
-        songTitle.innerText = `${results.trackName}`;
-
-        // Artist name
-        const artistName = document.createElement('p');
-        artistName.innerText = `${results.artistName}`;
-
-        // Album art
-        const album = document.createElement('img');
-        album.setAttribute("id","albumArt");
-        album.src = `${results.artworkUrl100}`
-        album.alt = `${results.collectionName}`
-        album.innerText = album.src, album.alt;
+        // Adding song, artist, and album art
+         resultDivElement.innerHTML = 
+        `
+        <div class="titleContainer">
+            <h3 class="songTitle"> ${results.trackName} </h3>
+            <p class="artistName"> ${results.artistName} </p>
+        </div>
+        <div class="albumArt">
+            <img src="${results.artworkUrl100}" alt="${results.collectionName}" >
+        </div>
+        `
 
         // Audio preview
         const audioTrack = document.createElement('source');
@@ -114,7 +113,7 @@ moodApp.displayResults = (jsonData) => {
         audioTrack.innerText = audioTrack.src;
         audioTrackContainer.appendChild(audioTrack);
 
-        resultsContainer.append(songTitle, artistName, album);
+        resultsContainer.append(resultDivElement);
     })
 }
 
