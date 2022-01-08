@@ -55,13 +55,13 @@ moodApp.userQuery = {
         {
             artist: 'adele',
         },
-
+        
     ],
     chill: [
         {
             artist: 'lana+del+rey',
         },
-
+        
     ],
     romantic: [
         {
@@ -78,14 +78,43 @@ moodApp.insertArtist = (artist) => {
         term: artist,
         entity: `musicTrack`
     });
-
+    
     moodApp.url = fetch(url)
-        .then((res) => {
-            return res.json();
-        })
-        .then((jsonData) => {
-            console.log(jsonData);
-        })
+    .then( (res) => {
+        return res.json();
+    })
+    .then( (jsonData) => {
+        moodApp.displayResults(jsonData.results);
+    })
+}
+// Display results on page
+moodApp.displayResults = (jsonData) => {
+    const resultsContainer = document.querySelector('.results');
+    const audioTrackContainer = document.querySelector('audio');
+    jsonData.forEach((results) => {
+
+        // Song title
+        const songTitle = document.createElement('h3');
+        songTitle.innerText = `${results.trackName}`;
+
+        // Artist name
+        const artistName = document.createElement('p');
+        artistName.innerText = `${results.artistName}`;
+
+        // Album art
+        const album = document.createElement('img');
+        album.src = `${results.artworkUrl100}`
+        album.alt = `${results.collectionName}`
+        album.innerText = album.src, album.alt;
+
+        // Audio preview
+        const audioTrack = document.createElement('source');
+        audioTrack.src = `${results.previewUrl}`;
+        audioTrack.innerText = audioTrack.src;
+        audioTrackContainer.appendChild(audioTrack);
+
+        resultsContainer.append(songTitle, artistName, album);
+    })
 }
 
 // Call Init
