@@ -103,6 +103,7 @@ moodApp.displayResults = (jsonData) => {
 
         // Album art
         const album = document.createElement('img');
+        album.setAttribute("id","albumArt");
         album.src = `${results.artworkUrl100}`
         album.alt = `${results.collectionName}`
         album.innerText = album.src, album.alt;
