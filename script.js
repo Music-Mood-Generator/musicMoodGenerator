@@ -24,23 +24,27 @@
 const moodApp = {};
 
 // Create Init
-moodApp.init= () => {
+moodApp.init = () => {
     // moodApp.userQuery();
     // moodApp.url();
-
+    moodApp.userInput();
 };
 
 // User Input
-moodApp.formElement= document.querySelector('form');
+moodApp.userInput = () => {
+    moodApp.formElement = document.querySelector('form');
 
-moodApp.formElement.addEventListener('submit', function(eventObj){
-    eventObj.preventDefault();
-    moodApp.userMood = document.querySelector('option:checked').value;
-    console.log(moodApp.userMood);
+    moodApp.formElement.addEventListener('submit', function (eventObj) {
+        eventObj.preventDefault();
+        moodApp.userMood = document.querySelector('option:checked').value;
+        console.log(moodApp.userMood);
 
-    moodApp.moodChoice = moodApp.userQuery[moodApp.userMood];
-    console.log(moodApp.moodChoice); 
-})
+        moodApp.moodChoice = moodApp.userQuery[moodApp.userMood];
+        console.log(moodApp.moodChoice);
+
+        moodApp.insertArtist(moodApp.moodChoice[0].artist);
+    })
+};
 moodApp.userQuery = {
     happy: [
         {
@@ -66,22 +70,23 @@ moodApp.userQuery = {
     ]
 };
 
-const artistTest = moodApp.moodChoice;
-const url = new URL(`https://itunes.apple.com/search?`);
-url.search = new URLSearchParams({
-    term: `${artistTest}`,
-     entity: `musicTrack`
- });
+// const artist = 'bruno+mars';
 
+moodApp.insertArtist = (artist) => {
+    const url = new URL(`https://itunes.apple.com/search?`);
+    url.search = new URLSearchParams({
+        term: artist,
+        entity: `musicTrack`
+    });
 
- moodApp.url = fetch(url)
- .then( (res) => {
-     return res.json(); 
- })
- .then( (jsonData) => {
-     console.log(jsonData);
- })
- 
+    moodApp.url = fetch(url)
+        .then((res) => {
+            return res.json();
+        })
+        .then((jsonData) => {
+            console.log(jsonData);
+        })
+}
 
 // Call Init
 moodApp.init();
