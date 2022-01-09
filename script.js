@@ -94,6 +94,7 @@ moodApp.displayResults = (jsonData) => {
     const audioTrackContainer = document.querySelector('audio');
     const resultDivElement = document.createElement('div');
     jsonData.forEach((results) => {
+        console.log(results);
 
         // Adding song, artist, and album art
          resultDivElement.innerHTML = 

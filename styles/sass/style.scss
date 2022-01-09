@@ -6,7 +6,6 @@ $basefont: "poppins", sans-serif;
 @import "partials/results.scss";
 
 
-
 .vinylContainer {
     display: flex;
 }
@@ -21,10 +20,11 @@ h1 {
     padding-top: 100px;
     padding-bottom: 50px;
 }
-img {
+.vinylDisc {
     width:80%;
     padding-top: 100px;
 }
+
 p {
     text-align: center;
     padding: 50px;

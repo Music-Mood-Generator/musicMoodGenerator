@@ -265,6 +265,10 @@ h1 {
   font-size: 4rem;
 }
 
+.albumArt {
+  width: 20%;
+}
+
 .vinylContainer {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -285,7 +289,7 @@ h1 {
   padding-bottom: 50px;
 }
 
-img {
+.vinylDisc {
   width: 80%;
   padding-top: 100px;
 }
