@@ -1,0 +1,41 @@
+// Media Queries
+@media (max-width: 1200px) {
+    .resultsContainer {
+        flex-direction: column;
+    }
+
+    h3 {
+        font-size: 1.3rem;;
+    }
+}
+
+@media (max-width: 500px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.1rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+
+    label {
+        font-size: 1.2rem;
+    }
+
+    select,
+    button {
+        font-size: 0.8rem;
+    }
+
+    button {
+        margin-top: 2%;
+    }
+
+    .titleContainer {
+        width: 100%;
+    }
+}
