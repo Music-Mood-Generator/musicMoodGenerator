@@ -6,6 +6,16 @@ html {
 h1 {
     font-size: 4rem;
 }
+label {
+    font-size: 2rem;
+}
+p {
+    font-size: 1.2rem;
+}
+select, 
+button {
+    font-family: $basefont;
+}
 
 
 

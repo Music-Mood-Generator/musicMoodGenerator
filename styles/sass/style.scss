@@ -27,5 +27,17 @@ img {
 }
 p {
     text-align: center;
-    padding: 50px;
+    padding: 100px 0 40px 0;
+}
+fieldset {
+    border: none;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+select {
+    padding: 10px;
+}
+.userOption {
+    margin-top: 40px;
 }

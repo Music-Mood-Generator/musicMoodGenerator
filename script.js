@@ -25,8 +25,6 @@ const moodApp = {};
 
 // Create Init
 moodApp.init = () => {
-    // moodApp.userQuery();
-    // moodApp.url();
     moodApp.userInput();
 };
 
@@ -36,11 +34,10 @@ moodApp.userInput = () => {
 
     moodApp.formElement.addEventListener('submit', function (eventObj) {
         eventObj.preventDefault();
+        document.getElementById('moodButton').disabled = true;
         moodApp.userMood = document.querySelector('option:checked').value;
-        console.log(moodApp.userMood);
 
         moodApp.moodChoice = moodApp.userQuery[moodApp.userMood];
-        console.log(moodApp.moodChoice);
 
         moodApp.insertArtist(moodApp.moodChoice[0].artist);
     })
@@ -70,7 +67,6 @@ moodApp.userQuery = {
     ]
 };
 
-// const artist = 'bruno+mars';
 
 moodApp.insertArtist = (artist) => {
     const url = new URL(`https://itunes.apple.com/search?`);
@@ -91,25 +87,26 @@ moodApp.insertArtist = (artist) => {
 moodApp.displayResults = (jsonData) => {
     const resultsContainer = document.querySelector('.results');
    
+    let content = "";
     const resultDivElement = document.createElement('div');
-    jsonData.forEach((results) => {
-
+    for(let i = 0; i < jsonData.length; i++) {
+        content = jsonData[0];
         // Adding song, artist, and album art
          resultDivElement.innerHTML = 
         `
       <div class="titleContainer">
-            <h3 class="songTitle"> ${results[0].trackName} </h3>
-            <p class="artistName"> ${results.artistName} </p>
+            <h3 class="songTitle"> ${content.trackName} </h3>
+            <p class="artistName"> ${content.artistName} </p>
         </div>
         <div class="albumArt">
-            <img src="${results.artworkUrl100}" alt="${results.collectionName}" >
+            <img src="${content.artworkUrl100}" alt="${content.collectionName}" >
         </div>
-        <audio controls src="${results.previewUrl}"></audio>
+        <audio controls src="${content.previewUrl}"></audio>
         <button onClick="window.location.reload();" class="resetButton">Change your mind?</button>
         `
-
+    
         resultsContainer.append(resultDivElement);
-    })
+    }
 }
 
 // Call Init
