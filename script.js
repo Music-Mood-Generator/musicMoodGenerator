@@ -90,28 +90,23 @@ moodApp.insertArtist = (artist) => {
 // Display results on page
 moodApp.displayResults = (jsonData) => {
     const resultsContainer = document.querySelector('.results');
-    
-    const audioTrackContainer = document.querySelector('audio');
+   
     const resultDivElement = document.createElement('div');
     jsonData.forEach((results) => {
 
         // Adding song, artist, and album art
          resultDivElement.innerHTML = 
         `
-        <div class="titleContainer">
-            <h3 class="songTitle"> ${results.trackName} </h3>
+      <div class="titleContainer">
+            <h3 class="songTitle"> ${results[0].trackName} </h3>
             <p class="artistName"> ${results.artistName} </p>
         </div>
         <div class="albumArt">
             <img src="${results.artworkUrl100}" alt="${results.collectionName}" >
         </div>
+        <audio controls src="${results.previewUrl}"></audio>
+        <button onClick="window.location.reload();" class="resetButton">Change your mind?</button>
         `
-
-        // Audio preview
-        const audioTrack = document.createElement('source');
-        audioTrack.src = `${results.previewUrl}`;
-        audioTrack.innerText = audioTrack.src;
-        audioTrackContainer.appendChild(audioTrack);
 
         resultsContainer.append(resultDivElement);
     })
