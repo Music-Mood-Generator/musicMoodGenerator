@@ -34,25 +34,24 @@
                 <form action="">
                     <fieldset>
                     <label for="moodSelection">How are you feeling today?</label>
-                    <select name="moodSelection" id="moodSelection">
-                        <option value="" disabled selected>Choose Your Mood</option>
-                        <option value="happy">Happy</option>
-                        <option value="sad">Sad</option>
-                        <option value="chill">Chill</option>
-                        <option value="romantic">Romantic</option>
-                    </select>
-                    <button type="submit">Give me a song!</button>
+                    <div class="userOption">
+                        <select name="moodSelection" id="moodSelection">
+                            <option value="" disabled selected>Choose Your Mood</option>
+                            <option value="happy">Happy</option>
+                            <option value="sad">Sad</option>
+                            <option value="chill">Chill</option>
+                            <option value="romantic">Romantic</option>
+                        </select>
+                        <button type="submit" id="moodButton">Give me a song!</button>
+                    </div>
                     </fieldset>
                 </form> 
             </div>
         </section>
         <section class="results">
             <div class="wrapper">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut consequatur architecto iste beatae vitae hic sint, sequi dolor pariatur deleniti earum expedita labore veniam, dolorum ullam nam odio aspernatur aut?</p>
                 <!-- Inner HTML goes here -->
-                <audio controls>
- 
-                </audio>
+                
             </div>
         </section>
     </main>
