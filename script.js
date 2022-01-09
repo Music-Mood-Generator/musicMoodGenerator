@@ -52,13 +52,13 @@ moodApp.userQuery = {
         {
             artist: 'adele',
         },
-        
+
     ],
     chill: [
         {
             artist: 'lana+del+rey',
         },
-        
+
     ],
     romantic: [
         {
@@ -74,37 +74,39 @@ moodApp.insertArtist = (artist) => {
         term: artist,
         entity: `musicTrack`
     });
-    
+
     moodApp.url = fetch(url)
-    .then( (res) => {
-        return res.json();
-    })
-    .then( (jsonData) => {
-        moodApp.displayResults(jsonData.results);
-    })
+        .then((res) => {
+            return res.json();
+        })
+        .then((jsonData) => {
+            moodApp.displayResults(jsonData.results);
+        })
 }
 // Display results on page
 moodApp.displayResults = (jsonData) => {
     const resultsContainer = document.querySelector('.results');
-   
+
     let content = "";
     const resultDivElement = document.createElement('div');
-    for(let i = 0; i < jsonData.length; i++) {
+    resultDivElement.classList.add("resultsContainer");
+    for (let i = 0; i < jsonData.length; i++) {
         content = jsonData[0];
         // Adding song, artist, and album art
-         resultDivElement.innerHTML = 
+        resultDivElement.innerHTML =
+            `
+            <div class="titleContainer">
+                <h3 class="songTitle"> ${content.trackName} </h3>
+                <p class="artistName"> ${content.artistName} </p>
+            </div>
+            <div class="mediaContainer">
+                <div>
+                    <img class="albumArt" src="${content.artworkUrl100}" alt="${content.collectionName}" >
+                </div>
+                <audio controls src="${content.previewUrl}"></audio>
+                <button onClick="window.location.reload();" class="resetButton">Change your mind?</button>
+            </div>
         `
-      <div class="titleContainer">
-            <h3 class="songTitle"> ${content.trackName} </h3>
-            <p class="artistName"> ${content.artistName} </p>
-        </div>
-        <div class="albumArt">
-            <img src="${content.artworkUrl100}" alt="${content.collectionName}" >
-        </div>
-        <audio controls src="${content.previewUrl}"></audio>
-        <button onClick="window.location.reload();" class="resetButton">Change your mind?</button>
-        `
-    
         resultsContainer.append(resultDivElement);
     }
 }

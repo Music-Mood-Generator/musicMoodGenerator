@@ -3,41 +3,6 @@ $basefont: "poppins", sans-serif;
 @import "partials/setup.scss";
 @import "partials/general.scss";
 @import "partials/typography.scss";
+@import "partials/starter.scss";
 @import "partials/results.scss";
-
-
-
-.vinylContainer {
-    display: flex;
-}
-.titleBox {
-    width:70%;
-}
-.imgBox {
-    width:30%;
-}
-h1 {
-    margin: 0;
-    padding-top: 100px;
-    padding-bottom: 50px;
-}
-img {
-    width:80%;
-    padding-top: 100px;
-}
-p {
-    text-align: center;
-    padding: 100px 0 40px 0;
-}
-fieldset {
-    border: none;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-}
-select {
-    padding: 10px;
-}
-.userOption {
-    margin-top: 40px;
-}
+@import "partials/mediaQueries.scss";

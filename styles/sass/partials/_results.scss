@@ -1,4 +1,33 @@
 .albumArt {
-    max-width: 300px;
+    width: 100%;
 }
+
+.artistName {
+    font-style: italic;
+    padding: 10px 0;
+    text-align: left;
+}
+
+.resultsContainer {
+    display: flex;
+    width: calc(100% / 2 - 60px);
+    margin: 0 auto;
+    justify-content: center;
+}
+
+.titleContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 20px;
+}
+
+.mediaContainer {
+    margin: 20px 0 20px 20px;
+}
+
+.resetButton {
+    padding-top: 10px;
+}
+
 
