@@ -73,7 +73,7 @@ moodApp.insertArtist = (artist) => {
     const url = new URL(`https://itunes.apple.com/search?`);
     url.search = new URLSearchParams({
         term: artist,
-        entity: `musicTrack`
+        entity: `musicTrack`,
     });
 
     moodApp.url = fetch(url)
@@ -87,8 +87,6 @@ moodApp.insertArtist = (artist) => {
         })
         .catch( (err) => {
             if(err.message) {
-                alert("Sorry. Please make sure you choose a mood option.");
-            }else  {
                 alert("Sorry, something went wrong. The mood guru is working on it.🔮");
             }
         })
