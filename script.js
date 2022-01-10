@@ -44,15 +44,9 @@ moodApp.userInput = () => {
 };
 // Happy mood choice is not working with Netlify, but works when opened through VS Code. 
 moodApp.userQuery = {
-    noMood: [
-        {
-            artist:'',
-        },
-        
-    ],
     happy: [
         {
-            artist: 'bruno+mars',
+            artist: 'spice+girls',
         }
     ],
     sad: [
