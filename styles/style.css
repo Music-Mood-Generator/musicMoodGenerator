@@ -279,6 +279,10 @@ h1 {
   font-size: 4rem;
 }
 
+h3 {
+  font-size: 1.5rem;
+}
+
 label {
   font-size: 2rem;
 }
@@ -290,10 +294,6 @@ p {
 select,
 button {
   font-family: "poppins", sans-serif;
-}
-
-.albumArt {
-  max-width: 300px;
 }
 
 .vinylContainer {
@@ -321,9 +321,13 @@ h1 {
   padding-top: 100px;
 }
 
-p {
+.headerP {
   text-align: center;
   padding: 100px 0 40px 0;
+}
+
+.description {
+  text-align: center;
 }
 
 fieldset {
@@ -344,4 +348,144 @@ select {
 
 .userOption {
   margin-top: 40px;
+}
+
+footer p {
+  text-align: center;
+}
+
+.albumArt {
+  width: 100%;
+}
+
+.artistName {
+  font-style: italic;
+  padding: 10px 0;
+  text-align: left;
+}
+
+.resultsContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: calc(100% / 2 - 60px);
+  margin: 0 auto;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.titleContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-left: 20px;
+}
+
+.mediaContainer {
+  margin: 20px 0 20px 20px;
+}
+
+.resetButton {
+  padding-top: 10px;
+}
+
+@media (max-width: 1200px) {
+  .resultsContainer {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+
+  h3 {
+    font-size: 1.3rem;
+  }
+}
+@media (max-width: 800px) {
+  .resultsContainer {
+    width: 100%;
+  }
+
+  .mediaContainer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+@media (max-width: 500px) {
+  .vinylContainer {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+
+  .titleBox {
+    width: 100%;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 3rem;
+  }
+
+  h2 {
+    font-size: 1.1rem;
+  }
+
+  .imgBox {
+    width: 48%;
+    margin: 0 auto;
+  }
+
+  .vinylDisc {
+    width: 100%;
+    padding-top: 60px;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  .headerP {
+    padding: 60px 0 40px 0;
+  }
+
+  label {
+    font-size: 1.2rem;
+  }
+
+  select,
+button {
+    font-size: 0.8rem;
+  }
+
+  button {
+    margin-top: 2%;
+  }
+
+  .results {
+    padding: 50px;
+  }
+
+  .titleContainer {
+    width: 100%;
+    text-align: center;
+  }
+
+  .artistName {
+    text-align: center;
+  }
 }

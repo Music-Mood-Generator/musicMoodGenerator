@@ -21,6 +21,9 @@ h1 {
     text-align: center;
     padding: 100px 0 40px 0;
 }
+.description {
+    text-align: center;
+}
 fieldset {
     border: none;
     display: flex;
@@ -32,4 +35,7 @@ select {
 }
 .userOption {
     margin-top: 40px;
+}
+footer p {
+    text-align: center;
 }

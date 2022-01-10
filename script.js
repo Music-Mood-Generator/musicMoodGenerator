@@ -77,10 +77,19 @@ moodApp.insertArtist = (artist) => {
 
     moodApp.url = fetch(url)
         .then((res) => {
-            return res.json();
+            if(res.ok === true) {
+                return res.json();
+            }
         })
         .then((jsonData) => {
             moodApp.displayResults(jsonData.results);
+        })
+        .catch( (err) => {
+            if(err.message) {
+                alert("Sorry. Please make sure you chose a mood option.");
+            }else  {
+                alert("Sorry, something went wrong. The mood guru is working on it.🔮");
+            }
         })
 }
 // Display results on page
