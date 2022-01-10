@@ -45,7 +45,7 @@ moodApp.userInput = () => {
 moodApp.userQuery = {
     happy: [
         {
-            artist: 'bruno+mars'
+            artist: 'bruno+mars',
         }
     ],
     sad: [
