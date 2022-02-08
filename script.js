@@ -36,43 +36,69 @@ moodApp.userInput = () => {
         eventObj.preventDefault();
         document.getElementById('moodButton').disabled = true;
         moodApp.userMood = document.querySelector('option:checked').value;
-
+        
         moodApp.moodChoice = moodApp.userQuery[moodApp.userMood];
+        // Randomize song
+        const randomSong = moodApp.moodChoice[Math.floor(Math.random() * moodApp.moodChoice.length)];
 
-        moodApp.insertArtist(moodApp.moodChoice[0].artist);
+        moodApp.insertArtist(randomSong.song);
     })
 };
 // Happy mood choice is not working with Netlify, but works when opened through VS Code. 
 moodApp.userQuery = {
     happy: [
         {
-            artist: 'spice+girls',
+            song: 'happy',
+        },
+        {
+            song: `don't+worry+be+happy`
+        },
+        {
+            song: 'good+as+hell'
         }
     ],
     sad: [
         {
-            artist: 'adele',
+            song: 'hello',
         },
+        {
+            song: 'the+scientist'
+        },
+        {
+            song: 'listen+before+i+go'
+        }
 
     ],
     chill: [
         {
-            artist: 'lana+del+rey',
+            song: 'summertime+sadness ',
         },
+        {
+            song: 'sunday+best'
+        },
+        {
+            song: 'after+last+night'
+        }
 
     ],
     romantic: [
         {
-            artist: 'michael+buble'
+            song: 'at+last'
+        },
+        {
+            song: `can't+help+falling+in+love`
+        },
+        {
+            song: 'drunk+in+love'
         }
     ]
 };
 
 
-moodApp.insertArtist = (artist) => {
+moodApp.insertArtist = (song) => {
     const url = new URL(`https://itunes.apple.com/search?`);
     url.search = new URLSearchParams({
-        term: artist,
+        term: song,
         entity: `musicTrack`,
     });
 
@@ -84,6 +110,7 @@ moodApp.insertArtist = (artist) => {
         })
         .then((jsonData) => {
             moodApp.displayResults(jsonData.results);
+            
         })
         .catch( (err) => {
             if(err.message) {
@@ -93,6 +120,7 @@ moodApp.insertArtist = (artist) => {
 }
 // Display results on page
 moodApp.displayResults = (jsonData) => {
+    
     const resultsContainer = document.querySelector('.results');
 
     let content = "";

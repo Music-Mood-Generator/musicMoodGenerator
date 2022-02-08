@@ -16,6 +16,9 @@
         display: flex;
         flex-direction: column;
     }
+    .vinylDisc:hover {
+        animation: none;
+    }
 }
 @media (max-width: 500px) {
     .vinylContainer {
