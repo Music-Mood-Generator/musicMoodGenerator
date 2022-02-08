@@ -7,6 +7,9 @@
     h3 {
         font-size: 1.3rem;;
     }
+    .vinylDisc {
+        right: 10%;
+    }
 }
 @media (max-width: 800px) {
     .resultsContainer {
@@ -15,6 +18,9 @@
     .mediaContainer {
         display: flex;
         flex-direction: column;
+    }
+    .vinylDisc {
+        top: 10%;
     }
     .vinylDisc:hover {
         animation: none;
@@ -74,4 +80,13 @@
     .artistName {
         text-align: center;
     }
+}
+@media (max-width: 320px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+   section {
+       padding: 20px;
+   }
+
 }
