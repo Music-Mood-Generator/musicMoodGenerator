@@ -460,6 +460,10 @@ footer p {
             flex-direction: column;
   }
 
+  .vinylDisc {
+    display: none;
+  }
+
   .titleBox {
     width: 100%;
     text-align: center;
